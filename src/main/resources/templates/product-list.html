@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Product List</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
+	<!-- https://fonts.google.com/specimen/Open+Sans -->
+	<link rel="stylesheet" href="/fonts/web/fontawesome.min.css" />
+	<!-- https://fontawesome.com/ -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<!-- https://getbootstrap.com/ -->
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+	<!-- ==== crty list ==== -->
+
+	<div class="container" style="width: 90%;">
+
+		<div class="row">
+			<div class="col-md-12">
+				<br>
+				<a th:href="@{/admin/getProductPage}"><button class="btn btn-default pull-right add-row"><i class="fa fa-plus"
+							style=" float: right;"></i>&nbsp;&nbsp; ADD PRODUCT</button></a>
+				&nbsp &nbsp
+				<button type="submit" class="btn" sec:authorize="isAuthenticated()">
+					<a th:href="@{/logout}"
+						onclick="return confirm(' “Are you sure you want to log out?” ')">Logout</a></button>
+				&nbsp &nbsp
+				<button type="submit" class="btn" sec:authorize="isAuthenticated()"><a
+						th:href="@{/admin/adminHome}">Dashboard</a></button>
+			</div>
+		</div>
+		<br>
+		<div>
+			<form th:action="@{/admin/listofProduct}">
+				<div>
+					<input type="text" class="btn btn-info" name="keyword" id="keyword" th:value="${keyword}"
+						placeholder="Find by product name, color & brand..." size="50" required />
+					<button type="submit" class="btn btn-info">Search</button>
+					<button type="reset" class="btn btn-info" onclick="clearSearch()">Reset</button>
+				</div>
+			</form>
+		</div>
+		<br>
+
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered" id="editableTable">
+					<thead style="text-align: center;">
+						<tr>
+							<!--<th>SN</th>-->
+							<th>NAME</th>
+							<th>PRICE</th>
+							<th>DISCRIPTION</th>
+							<th>STOCK</th>
+							<th>IMAGE</th>
+							<th>COLOR</th>
+							<th>CATEGORY</th>
+							<th>DISCOUNT PRICE</th>
+							<th>DISCOUNT PRSENT</th>
+							<th>DISCOUNT AMOUNT</th>
+							<th>BRAND</th>
+
+							<th>ACTIONS</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="(Product, iStat : ${listofProduct})" data-id="1">
+							<!--<td th:text="${iStat.index+1}" data-field="number">1</td>-->
+							<td th:text="${Product.name}" data-field="name">Mobile</td>
+							<td th:text="| Rs. ${Product.price}|" data-field="name">12000</td>
+							<td th:text="${Product.description}" data-field="about">Redmi Note !0 Pro Max</td>
+							<td th:text="${Product.stock}" data-field="about">Redmi Note !0 Pro Max</td>
+							<td data-field="name"> <img src="https://imgd-ct.aeplcdn.com/1056x660/n/0b8pp0b_1638611.jpg?q=80"></td>
+							<!--<td data-field="name"> <img th:src="@{${'/productimages/' + Product.imageName}}"></td>-->
+							<td th:text="${Product.color}" data-field="name">Red</td>
+							<td th:text="${Product.category.name}" data-field="name">category</td>
+							<td th:text="| Rs. ${Product.discountedPrice}|" data-field="name">discount price</td>
+							<td th:text="|${Product.discountPersent} %|" data-field="name">discount prsesnt</td>
+							<td th:text="| Rs. ${Product.saveAmount}|" data-field="name">discount amount</td>
+							<td th:text="${Product.brand}" data-field="name">brand</td>
+							<td>
+								<div class="mt">
+									<a th:href="@{/admin/deleteProduct/{id} (id= ${Product.id})}"
+										class="button button-small edit" title="Delete" style="color: deepskyblue"
+										onclick="return confirm('Are you sure you want to delete this record...?')">DELETE</a>&nbsp  |  &nbsp 
+										
+
+									<a th:href="@{/admin/getOrEditProduct/{id} (id= ${Product.id})}"
+										class="button button-small edit" title="Edit" style="color: deepskyblue;"
+										onclick="return confirm('Are you sure you want to edit this record...?')">EDIT</a>
+								</div>
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+
+				<br>
+				<!--PAGINATION OPTION (1)-->
+				<!--<div th:if="${totalPages > 1}" style="font-size: large" class="panel-footer">
+					<div>
+						Total Items [[${totalItems}]] : Page [[${currentPage}]] of [[${totalPages}]]
+					</div>
+					<span th:each="iStat: ${#numbers.sequence(1, totalPages)}">
+						<a th:if="${currentPage != i}" th:href="@{'/admin/page/' + ${iStat}}">[[${iStat}]]</a>
+						<span th:unless="${currentPage != i}">[[${iStat}]]</span> &nbsp; &nbsp;
+					</span>
+				
+					<a th:if="${currentPage < totalPages}" th:href="@{'/admin/page/' + ${currentPage + 1}}">Next</a>
+					<span th:unless="${currentPage < totalPages}">Next</span>
+				
+					<a th:if="${currentPage < totalPages}" th:href="@{'/admin/page/' + ${totalPages}}">Last</a>
+					<span th:unless="${currentPage < totalPages}">Last</span>
+				</div>-->
+				
+				
+				<!--PAGINATION OPTION (2)-->
+				<footer th:if="${totalPages > 1}" style="font-size: large" class="panel-footer">
+					Total Items [[${totalItems}]] : Page [[${currentPage}]] of [[${totalPages}]]
+					&nbsp; &nbsp; -- &nbsp;
+					<span th:each="iStat: ${#numbers.sequence(1, totalPages)}">
+						<a th:if="${currentPage!= iStat}" th:href="@{'/admin/page/' + ${iStat}}">[[${iStat}]]</a>
+						<span  th:unless="${currentPage != iStat}">[[${iStat}]]</span> &nbsp; &nbsp;
+					</span>
+					<a th:if="${currentPage < totalPages}" th:href="@{'/admin/page/' + ${currentPage + 1}}">Next</a>
+						<span th:unless="${currentPage < totalPages}">Next</span>&nbsp;
+						
+					<a th:if="${currentPage < totalPages}" th:href="@{'/admin/page/' + ${totalPages}}">Last</a>
+						<span th:unless="${currentPage < totalPages}">Last</span>
+				</footer>
+
+			</div>
+		</div>
+	</div>
+	<!-- ==== end ctry list ==== -->
+	<footer class="tm-footer row tm-mt-small">
+		<div class="col-12 font-weight-light">
+			<p class="text-center text-white mb-0 px-4 small">
+				Copyright &copy; <b>2024</b> All rights reserved.
+
+				Design By: <a href="#" style="color: goldenrod;">Shahrukh Faiz</a>
+			</p>
+		</div>
+	</footer>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script>function clearSearch() {window.location = "/admin/listofProduct";}</script>
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

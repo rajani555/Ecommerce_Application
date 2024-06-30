@@ -1,0 +1,433 @@
+@media screen and (max-width: 320px){
+    section {
+        padding: 15px 15px;
+        /* flex-wrap: wrap; */
+    }
+    h4{
+        font-size: 10px;
+    }
+    h5{
+        font-size: 10px;
+    }
+    ol.progtrckr {
+        margin: 0;
+        padding: 0;
+        font-size: 8px;
+    }
+    .track-order-flex {
+        display: block;
+        background-color: #fff;
+        height: auto;
+        margin-bottom: 10px;
+        gap: 50px;
+        align-items: center;
+    }
+    .sec-third {
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+        display: block;
+        justify-content: space-between;
+    }
+    .flex-dwnld {
+        display: block;
+        justify-content: space-between;
+    }
+    .row{
+		width: 100%;
+	}
+    p {
+        margin: 7px;
+        /* width: 54px; */
+        font-size: 7px;
+    }
+}
+
+
+
+/* ====================== 375 ====================== */
+
+@media screen and (max-width: 375px){
+    section {
+        padding: 15px 15px;
+        /* flex-wrap: wrap; */
+    }
+    h4{
+        font-size: 10px;
+    }
+    h5{
+        font-size: 10px;
+    }
+    ol.progtrckr {
+        margin: 0;
+        padding: 0;
+        font-size: 8px;
+    }
+    .track-order-flex {
+        display: block;
+        background-color: #fff;
+        height: auto;
+        margin-bottom: 10px;
+        gap: 50px;
+        align-items: center;
+    }
+    .sec-third {
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+        display: block;
+        justify-content: space-between;
+    }
+    .flex-dwnld {
+        display: block;
+        justify-content: space-between;
+    }
+    p {
+        margin: 7px;
+        /* width: 54px; */
+        font-size: 7px;
+    }
+}
+
+
+
+
+
+/* ================================== 425 ===================== */
+
+
+@media screen and (max-width: 425px){
+    section {
+        padding: 15px 15px;
+        /* flex-wrap: wrap; */
+    }
+    p {
+        margin: 7px;
+        /* width: 54px; */
+        font-size: 7px;
+    }
+    h4{
+        font-size: 10px;
+    }
+    h5{
+        font-size: 10px;
+    }
+    ol.progtrckr {
+        margin: 0;
+        padding: 0;
+        font-size: 8px;
+    }
+    .track-order-flex {
+        display: block;
+        background-color: #fff;
+        height: auto;
+        margin-bottom: 10px;
+        gap: 50px;
+        align-items: center;
+    }
+    .sec-third {
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+        display: block;
+        justify-content: space-between;
+    }
+    .flex-dwnld {
+        display: block;
+        justify-content: space-between;
+    }
+}
+
+
+
+/* ==================================  order ============================= */
+
+
+.my-order99999{
+    width: 100%;
+    background-color: #fff;
+    height: auto;
+    display:flex !important;
+    justify-content: space-between;
+    padding: 0 20px;
+
+}
+h5{
+    margin-bottom: 0;
+}
+p{
+    margin-bottom: 0;
+}
+.order-pic img{
+    height: 100px;
+    width: 75px;
+    
+}
+
+.order-pic{
+    display: flex;
+    gap: 50px;
+}
+.deliver-status{
+    padding-right: 100px;
+}
+
+
+
+
+/* ==================== order-details ================== */
+
+.order-flex{
+  width: 100%;
+  display: flex;
+  margin:  10px 0;
+ gap: 2px;
+}
+
+.odr-dtl-1{
+  width: 30%;
+  background-color: #fff;
+  height: auto;
+  padding: 20px;
+}
+.odr-dtl-2{
+  width: 35%;
+  background-color: #fff;
+  height: auto;
+  padding: 20px;
+}
+.odr-dtl-3{
+  width: 35%;
+  background-color: #fff;
+  height: auto;
+  padding: 20px;
+}
+#wrap{
+	border: 1px solid mediumpurple;
+	margin-right: 50px;
+	width: 100px;
+	padding: 5px 20px;
+}
+.s-coin{
+  display: flex;
+  gap: 10px;
+}
+.s-detail h3{
+  margin: 0px;
+}
+s-icon{
+  margin: 5px;
+}
+.invoice{
+  display: flex;
+  gap: 10px;
+}
+.odr-dtl-1 h2 {
+  margin: 7px;
+}
+.odr-dtl-2 h2 {
+  margin: 7px;
+}
+.odr-dtl-3 h2 {
+  margin: 7px;
+}
+.odr-dtl-1 h3 {
+  margin: 7px;
+}
+.odr-dtl-2 h3 {
+  margin-top: 7px;
+}
+p {
+  margin: 7px;
+}
+.odr-dtl-3 h3 {
+  margin-top: 7px;
+}
+.flex-dwnld{
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-file-invoice{
+  font-weight: 900;
+  margin: 10px 10px;
+}
+
+
+/* ============= End Order-details ============= */
+
+
+/* <!-- ============================ Order-2nd section =================== --> */
+
+.track-order-flex{
+  display: flex;
+  background-color: #fff;
+  height: auto;
+  margin-bottom: 10px;
+  gap: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  padding-right: 50px;
+}
+.tracing{
+	width: 50%;
+	background-color: #fff;
+}
+
+.track-item{
+  padding: 20px;
+  display: flex;
+  gap: 35px;
+}
+
+.track-item img{
+  width: 100px;
+  height: 150px;
+}
+
+.track-bar{
+  width: 45%;
+}
+
+.rate-flex{
+  display: flex;
+}
+
+.rate-flex p{ 
+  margin-top: 0px;
+}
+.rating{
+  color: #108bea;
+}
+
+
+/* ===================== track ==================== */
+
+
+ol.progtrckr {
+  margin: 0;
+  padding: 0;
+  list-style-type none;
+}
+
+ol.progtrckr li {
+  display: inline-block;
+  text-align: center;
+  line-height: 3.5em;
+}
+
+ol.progtrckr[data-progtrckr-steps="2"] li { width: 49%; }
+ol.progtrckr[data-progtrckr-steps="3"] li { width: 33%; }
+ol.progtrckr[data-progtrckr-steps="4"] li { width: 24%; }
+ol.progtrckr[data-progtrckr-steps="5"] li { width: 19%; }
+ol.progtrckr[data-progtrckr-steps="6"] li { width: 16%; }
+ol.progtrckr[data-progtrckr-steps="7"] li { width: 14%; }
+ol.progtrckr[data-progtrckr-steps="8"] li { width: 12%; }
+ol.progtrckr[data-progtrckr-steps="9"] li { width: 11%; }
+
+ol.progtrckr li.progtrckr-done {
+  color: black;
+  border-bottom: 4px solid yellowgreen;
+}
+ol.progtrckr li.progtrckr-todo {
+  color: silver; 
+  border-bottom: 4px solid silver;
+}
+
+ol.progtrckr li:after {
+  content: "\00a0\00a0";
+}
+ol.progtrckr li:before {
+  position: relative;
+  bottom: -2.5em;
+  float: left;
+  left: 50%;
+  line-height: 1em;
+}
+ol.progtrckr li.progtrckr-done:before {
+  content: "\2713";
+  color: white;
+  background-color: yellowgreen;
+  height: 2.2em;
+  width: 2.2em;
+  line-height: 2.2em;
+  border: none;
+  border-radius: 2.2em;
+}
+ol.progtrckr li.progtrckr-todo:before {
+  content: "\039F";
+  color: silver;
+  background-color: white;
+  font-size: 2.2em;
+  bottom: -1.2em;
+}
+
+
+
+/* <!-- ============================ End Order-2nd section =================== --> */
+
+
+/* ============================ Order-3Rd section =================== */
+
+.sec-third{
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.del-status{
+  display: flex;
+  margin-right: 150px;
+  margin-top: 75px;
+}
+
+.del-status p{
+  margin-top: -2px;
+}
+
+section{
+  padding: 15px 15px;
+  padding-bottom: 0px;
+  /* flex-wrap: wrap; */
+}
+
+
+/*============================= Manage Address===========================*/
+
+.my-profile img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+   margin-top: 8px;
+}
+
+.my-profile{
+    background-color: #fff;
+    display: flex;
+    gap: 25px;
+    padding: 5px 20px;
+}
+
+.right{
+    background-color: #fff;
+    padding: 5px 20px;
+}
+
+.user-profile{
+    padding: 50px;
+}
+
+
+
+
+
+
+/* ============================ END Order-3Rd section =================== */
+
+
+
+
+

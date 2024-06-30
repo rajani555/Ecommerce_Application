@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>User List</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
+	<!-- https://fonts.google.com/specimen/Open+Sans -->
+	<link rel="stylesheet" href="/fonts/web/fontawesome.min.css" />
+	<!-- https://fontawesome.com/ -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<!-- https://getbootstrap.com/ -->
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+	<!-- ==== crty list ==== -->
+
+	<div class="container" style="width: 90%;">
+
+		<div class="row">
+			<div class="col-md-12">
+				<br>
+				<a th:href="@{/admin/adminHome}"><button class="btn btn-default pull-right add-row"><i
+							class="fa fa-plus" style=" float: right;"></i>&nbsp;&nbsp; BACK TO HOME</button></a>&nbsp
+				&nbsp
+
+				<button type="submit" class="btn" sec:authorize="isAuthenticated()">
+					<a th:href="@{/logout}" onclick="return confirm(' “Are you sure you want to log out?” ')">Logout</a>
+				</button>
+			</div>
+		</div>
+		<br>
+
+		<div>
+			<form th:action="@{/admin/listOfUser}">
+				<div>
+					<input type="text" class="btn btn-info" name="keyword" id="keyword" th:value="${keyword}"
+						placeholder="Find by Users name and email..." size="50" required />
+					<button type="submit" class="btn btn-info">Search</button>
+					<button type="reset" class="btn btn-info" onclick="clearSearch()">Reset</button>
+				</div>
+			</form>
+		</div>
+		<br>
+
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered" id="editableTable">
+					<thead style="text-align: center;">
+						<tr>
+							<th>SN</th>
+							<th>FULL NAME</th>
+							<th>GENDER</th>
+							<th>MOBILE</th>
+							<th>IMAGE</th>
+							<th>EMAIL</th>
+							<th>LAST UPDATED</th>
+							<th>ROLES</th>
+							<th>ACTIONS</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="(Users, iStat : ${listOfUsers})" data-id="1">
+							<td th:text="${iStat.index+1}" data-field="number">1</td>
+							<td th:text="${Users.fullname}" data-field="name">Mobile</td>
+							<td th:text="${Users.gender}" data-field="name">12000</td>
+							<td th:text="${Users.mobile}" data-field="about">Redmi Note !0 Pro Max</td>
+							<td data-field="name"> <img
+									src="https://t3.ftcdn.net/jpg/05/17/79/88/360_F_517798849_WuXhHTpg2djTbfNf0FQAjzFEoluHpnct.jpg"
+									height="50"></td>
+							<td th:text="${Users.email}" data-field="name">Red</td>
+							<td th:text="${Users.createdAt}" data-field="name">category</td>
+							<td th:text="${Users.role}" data-field="name">category</td>
+							<td>
+								<div class="mt">
+									<a th:href="@{/admin/deleteUser/{id} (id= ${Users.id})}"
+										class="button button-small edit" title="Delete" style="color: deepskyblue;"
+										onclick="return confirm('Are you sure you want to delete this record...?')">DELETE</a>&nbsp
+									&nbsp
+
+									<!--<a th:href="@{/admin/getOrEditProduct/{id} (id= ${Users.id})}"
+								class="button button-small edit" title="Edit" style="color: deepskyblue;"
+								onclick="return confirm('Are you sure you want to edit this record...?')">EDIT</a>
+								</div>-->
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+
+				<!--<br>				
+				PAGINATION
+				<div th:if = "${totalPages > 1}">
+					<div class="col-sm-2">
+						Total Rows: [[${totalItems}]]
+					</div>
+					
+					<div class="col-sm-1">
+                      <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+      					<a th:if="${currentPage != i}" th:href="@{'/admin/page/' + ${i}}">[[${i}]]</a>
+      					<span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
+                   	  </span>
+               		</div>
+               		
+               		<div class="col-sm-1">
+                     <a th:if="${currentPage < totalPages}" th:href="@{'/admin/page/' + ${currentPage + 1}}">Next</a>
+                     <span th:unless="${currentPage < totalPages}">Next</span>
+                    </div>
+               		
+               		<div class="col-sm-1">
+                     <a th:if="${currentPage < totalPages}" th:href="@{'/admin/page/' + ${totalPages}}">Last</a>
+                     <span th:unless="${currentPage < totalPages}">Last</span>
+                	</div>
+				</div>-->
+
+			</div>
+		</div>
+	</div>
+	<!-- ==== end ctry list ==== -->
+	<footer class="tm-footer row tm-mt-small">
+		<div class="col-12 font-weight-light">
+			<p class="text-center text-white mb-0 px-4 small">
+				Copyright &copy; <b>2024</b> All rights reserved.
+
+				Design By: <a href="#" style="color: goldenrod;">Shahrukh Faiz</a>
+			</p>
+		</div>
+	</footer>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script>function clearSearch() {window.location = "/admin/listOfUser";}</script>
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

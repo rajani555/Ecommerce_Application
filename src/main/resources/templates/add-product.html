@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Add Product</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
+	<!-- https://fonts.google.com/specimen/Open+Sans -->
+	<link rel="stylesheet" href="/css/fontawesome.min.css" />
+	<!-- https://fontawesome.com/ -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<!-- https://getbootstrap.com/ -->
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+	<!-- ==== ctry=== -->
+
+	<div id="app">
+		<div class="container mt-5">
+
+			<div class="row">
+				<div class="col-md-12">
+					<br>
+					<a th:href="@{/admin/listofProduct}"><button class="btn btn-default pull-right add-row">
+					<i style=" float: right;"></i>&nbsp;&nbsp; PRODUCT LIST</button></a> &nbsp &nbsp
+					
+					<button type="submit" class="btn" sec:authorize="isAuthenticated()">
+						<a th:href="@{/logout}" onclick="return confirm(' “Are you sure you want to log out?” ')">Logout</a>
+					</button>
+				</div>
+			</div> <br>
+
+			<form action="#" th:action="@{/admin/addProduct}" th:object="${productDTO}" method="post" enctype="multipart/form-data" class="pt-5">
+				<div class="form-group">
+					<label>Product Name</label>
+					<input type="text" th:field="*{name}" id="productname" class="form-control"
+					placeholder="Enter Product Name" required>
+				</div>
+				
+				<div class="form-group">
+					<label>Price</label>
+					<input type="text" th:field="*{price}" id="price" class="form-control"
+					placeholder="Enter Product Price" required>
+				</div>
+				
+				<div class="form-group">
+					<label>Discription</label>
+					<input type="text" th:field="*{description}" class="form-control" placeholder=" Enter Product Discription" required>
+				</div>
+				
+				<div class="form-group">
+					<label>Stocks</label>
+					<input type="text" th:field="*{stock}" id="product Product Color" class="form-control"
+					placeholder="Enter Product Stock" required>
+				</div>
+				
+				<div class="form-group">
+					<label>Color</label>
+					<input type="text" th:field="*{color}" id="product Product Color" class="form-control"
+					placeholder="Enter Product Color" required>
+				</div>
+				
+				<div class="form-group">
+					<label>Categories</label>
+					<select class="kk" th:field="*{categoryId}" id="category" name="category" required>
+						<option value="">Choose Category</option>
+						<option th:each="Category : ${listofCategoryWithOutKeyw}"
+								th:value="${Category.id}"
+								th:text="${Category.name}"></option>
+					</select>
+				</div>
+				
+				<!--<div class="form-group">
+					<label>Discount Price</label>
+					<input type="text" th:field="*{discountedPrice}" id="product Product Color" class="form-control"
+						placeholder="Enter Product Color">
+				</div>-->
+				
+				<div class="form-group">
+					<label>Discount Percentage</label>
+					<input type="text" th:field="*{discountPersent}" id="product Product Color" class="form-control"
+					placeholder="Enter Product Color" required>
+				</div>
+				
+				<div class="form-group">
+					<label>Brand</label>
+					<input type="text" th:field="*{brand}" id="product Product Color" class="form-control"
+					placeholder="Enter Product Color" required>
+				</div>
+        
+        <div class="form-group">
+          <label>Product Image1</label>
+          <input type="file" name="productImage" accept="image/jpeg, image/png, image/jpg, image/gif, image/pdf"
+			id="doctorImage" placeholder="Upload Pic" required >
+			<input type="hidden" name="imgName" th:value="${productDTO.imageName}">
+        </div>
+        
+        <div class="form-group">
+          <label>Product Image2</label>
+          <input type="file" name="productImage2" accept="image/jpeg, image/png, image/jpg, image/gif, image/pdf"
+			id="doctorImage" placeholder="Upload Pic" required >
+			<input type="hidden" name="imgName2" th:value="${productDTO.imageName2}">
+        </div>
+        
+        <div class="form-group">
+          <label>Product Image3</label>
+          <input type="file" name="productImage3" accept="image/jpeg, image/png, image/jpg, image/gif, image/pdf"
+			id="doctorImage" placeholder="Upload Pic" required >
+			<input type="hidden" name="imgName3" th:value="${productDTO.imageName3}">
+        </div>
+        
+        <div class="form-group">
+          <label>Product Image4</label>
+          <input type="file" name="productImage4" accept="image/jpeg, image/png, image/jpg, image/gif, image/pdf"
+			id="doctorImage" placeholder="Upload Pic" required >
+			<input type="hidden" name="imgName4" th:value="${productDTO.imageName4}">
+        </div>
+
+				<div class="form-group w-100">
+					<a href="#"><button type="submit" class="btn btn-primary btn-block">ADD PRODUCT</button></a> &nbsp
+					<a href="#"><button type="Reset" class="btn btn-primary btn-block">RESET </button></a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- ==== end ctry=== -->
+	<footer class="tm-footer row tm-mt-small">
+		<div class="col-12 font-weight-light">
+			<p class="text-center text-white mb-0 px-4 small">
+				Copyright &copy; <b>2024</b> All rights reserved.
+				Design By: <a href="#" style="color: goldenrod;">Shahrukh Faiz</a>
+			</p>
+		</div>
+	</footer>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

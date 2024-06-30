@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<title>Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/mt.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+<body>
+
+	<!-- Sidebar -->
+	<div class="asd main">
+		<div class="sidenav">
+			<button class="dropdown-btn" style="color: goldenrod;">[[${user.fullname}]]
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container">
+				<a th:href="@{/ViewMyProfile}">View Profile</a>
+				<a th:href="@{/home}">Home</a>
+				<a sec:authorize="isAuthenticated()" th:href="@{/logout}" onclick="return confirm(' “Are you sure you want to log out?” ')">Logout</a>
+			</div>
+			<button class="dropdown-btn">PRODUCTS
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container">
+				<a th:href="@{/admin/getProductPage}">Add Product</a>
+				<a th:href="@{/admin/listofProduct}">Product List</a>
+			</div>
+			<button class="dropdown-btn">CATEGORIES
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container">
+				<a th:href="@{/admin/getCategoryPage}">Add Category</a>
+				<a th:href="@{/admin/listofCategory}">Category List</a>
+			</div>
+			<button class="dropdown-btn">ORDERS
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container">
+				<a th:href="@{/admin/Order/listOfOrder}">Orders List</a>
+			</div>
+			
+			<button class="dropdown-btn">SETTINGS
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container">
+				<a th:href="@{/admin/registration}">Add New Admin</a>
+				<a th:href="@{/admin/listOfAdmins}">View All Admins</a>
+			</div>
+			
+			<button class="dropdown-btn">USERS
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container">
+				<a th:href="@{/admin/listOfUser}">View All Users</a>
+			</div>
+			
+		</div>
+
+		<!-- Page Content -->
+		<div>
+			<div class="container">
+				<div class="row">
+					<a th:href="@{/admin/listofProduct}">
+					<div class="col-lg-6 col-sm-6">
+						<div class="card-box bg-blue">
+							<div class="inner">
+								<h3> Products </h3>
+								<h4 th:text="|${countTheProduct} +|">150+</h4>
+							</div>
+						</div>
+					</div>
+					</a>
+					
+					<a th:href="@{/admin/listofCategory}">
+					<div class="col-lg-6 col-sm-6">
+						<div class="card-box bg-green">
+							<div class="inner">
+								<h3> Categories </h3>
+								<h4 th:text="|${countTheCategory} +|">75+</h4>
+							</div>
+						</div>
+					</div>
+					</a>
+					
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-sm-6">
+						<div class="card-box1 bg-orange">
+							<div class="inner">
+								<h3> Welcome <br> <span style="text-align: center;">To </span><br> Ansar-mart </h3>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-sm-6">
+						<div class="card-box">
+							<div class="inner1">
+								<img src="/images/banners/cat-banner-1.jpg" alt="Image">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="welcome">
+				<h2>
+					<marquee behavior="alternate">Thanks for visit our website...!</marquee>
+				</h2>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+<script>
+	//* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+	var dropdown = document.getElementsByClassName("dropdown-btn");
+	var i;
+
+	for (i = 0; i < dropdown.length; i++) {
+		dropdown[i].addEventListener("click", function () {
+			this.classList.toggle("active");
+			var dropdownContent = this.nextElementSibling;
+			if (dropdownContent.style.display === "block") {
+				dropdownContent.style.display = "none";
+			} else {
+				dropdownContent.style.display = "block";
+			}
+		});
+	}
+</script>
+
+</html>
